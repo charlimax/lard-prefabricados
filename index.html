@@ -10,7 +10,6 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    /* Fondo degradado amarillo Caterpillar (#FFC107) a gris (#B0B0B0) */
     background: linear-gradient(to bottom, #FFC107, #B0B0B0);
     color: #333;
     text-align: center;
@@ -25,22 +24,21 @@ header {
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background: white; /* Fondo del recuadro del logo */
+    background: white;
     padding: 10px 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 .logo img {
-    height: 50px; /* Cambiar tamaño del logo */
+    height: 50px;
 }
 
 /* ==================== IMAGEN PRINCIPAL (HERO) ==================== */
 .hero-img {
     width: 100%;
-    max-height: 60vh; /* Altura máxima: 60% del alto de pantalla */
-    object-fit: cover; /* Ajusta y recorta sin deformar */
+    max-height: 60vh;
+    object-fit: cover;
     display: block;
-}
 }
 
 /* ==================== SECCIÓN DESCRIPCIÓN ==================== */
@@ -48,16 +46,16 @@ header {
     padding: 20px;
     max-width: 900px;
     margin: auto;
-    font-size: 18px; /* Cambiar tamaño del texto */
+    font-size: 18px;
 }
 .descripcion h1 {
-    font-size: 28px; /* Cambiar tamaño del título */
+    font-size: 28px;
 }
 
 /* ==================== GALERÍA DE IMÁGENES ==================== */
 .galeria {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajuste automático */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 15px;
     padding: 20px;
 }
@@ -69,19 +67,20 @@ header {
 
 /* ==================== BOTONES GENERALES ==================== */
 .btn {
-    background: #FFC107; /* Color del botón */
+    background: #FFC107;
     color: black;
     padding: 12px 20px;
-    font-size: 18px; /* Tamaño del texto del botón */
+    font-size: 18px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     margin: 10px auto;
     display: inline-block;
     transition: background 0.3s;
+    text-decoration: none;
 }
 .btn:hover {
-    background: #E0A800; /* Color al pasar el mouse */
+    background: #E0A800;
 }
 
 /* ==================== MODAL DE CALCULADORA ==================== */
@@ -120,10 +119,10 @@ iframe {
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 768px) {
     .logo img {
-        height: 40px; /* Logo más pequeño en móviles */
+        height: 40px;
     }
     .descripcion h1 {
-        font-size: 22px; /* Título más pequeño */
+        font-size: 22px;
     }
     .btn {
         font-size: 16px;
@@ -136,9 +135,9 @@ iframe {
 
 <!-- ==================== IMAGEN PRINCIPAL CON LOGO ==================== -->
 <header>
-    <img src="fondo.jpg" alt="Imagen principal" class="hero-img">
+    <img src="tu-imagen-principal.jpg" alt="Imagen principal" class="hero-img">
     <div class="logo">
-        <img src="Logo.png" alt="Logo">
+        <img src="tu-logo.png" alt="Logo">
     </div>
 </header>
 
@@ -151,8 +150,8 @@ iframe {
 <!-- ==================== GALERÍA DE CASAS ==================== -->
 <section class="galeria">
     <img src="casa1.jpg" alt="Casa 1">
-    <img src="casadesnivel.jpg" alt="Casa 2">
-    <img src="casadospisos.jpg" alt="Casa 3">
+    <img src="casa2.jpg" alt="Casa 2">
+    <img src="casa3.jpg" alt="Casa 3">
 </section>
 
 <!-- ==================== BOTÓN DE PRESUPUESTO ==================== -->
@@ -160,14 +159,14 @@ iframe {
 
 <!-- ==================== ACCIONES EXTRA ==================== -->
 <div>
-    <a href="https://wa.me/573012494093?text=Hola%20quiero%20comprar%20una%20casa%20prefabricada" target="_blank" class="btn">
+    <a href="https://wa.me/573001112233?text=Hola%20quiero%20comprar%20una%20casa%20prefabricada" target="_blank" class="btn">
         Comprar
     </a>
-    <a href="https://wa.me/573133403656?text=Hola%20quiero%20más%20información%20sobre%20las%20casas%20prefabricadas" target="_blank" class="btn">
+    <a href="https://wa.me/573001112233?text=Hola%20quiero%20más%20información%20sobre%20las%20casas%20prefabricadas" target="_blank" class="btn">
         Más información
     </a>
-    <button class="btn" onclick="document.getElementById('mapa').scrollIntoView({behavior: 'smooth'})">Cómo llegar</button>
 </div>
+
 <!-- ==================== MODAL CALCULADORA ==================== -->
 <div class="modal" id="modal">
     <div class="modal-content">
@@ -182,14 +181,10 @@ iframe {
 </div>
 
 <!-- ==================== GOOGLE MAPS ==================== -->
-
 <section id="mapa" style="padding: 20px;">
     <h2>Visítanos</h2>
     <iframe 
         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3976.7804714086045!2d-74.143906!3d4.8743369!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNMKwNTInMjcuNiJOIDc0wrAwOCczOC4xIlc!5e0!3m2!1ses!2sco!4v1691458900000!5m2!1ses!2sco" 
-        width="100%" 
-        height="300" 
-        style="border:0;" 
         allowfullscreen="" 
         loading="lazy" 
         referrerpolicy="no-referrer-when-downgrade">
@@ -204,21 +199,14 @@ iframe {
     </a>
 </section>
 
-
-
 <!-- ==================== JAVASCRIPT ==================== -->
 <script>
-/* Abrir modal */
 function abrirModal() {
     document.getElementById('modal').style.display = 'flex';
 }
-
-/* Cerrar modal */
 function cerrarModal() {
     document.getElementById('modal').style.display = 'none';
 }
-
-/* Calcular precio */
 function calcular(tipo) {
     let metros = document.getElementById('metros').value;
     if (!metros) {
@@ -227,9 +215,9 @@ function calcular(tipo) {
     }
     let precio;
     if (tipo === 'bloquelon') {
-        precio = metros * 500000; // Cambia el valor por m² en Bloquelón
+        precio = metros * 500000;
     } else {
-        precio = metros * 450000; // Cambia el valor por m² en Plaqueta
+        precio = metros * 450000;
     }
     document.getElementById('resultado').innerText = "Precio estimado: $" + precio.toLocaleString();
 }
@@ -237,10 +225,3 @@ function calcular(tipo) {
 
 </body>
 </html>
-
-
-
-
-
-
-
