@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casas Prefabricadas</title>
+
+<style>
+/* ==================== ESTILOS GENERALES ==================== */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    /* Fondo degradado amarillo Caterpillar (#FFC107) a gris (#B0B0B0) */
+    background: linear-gradient(to bottom, #FFC107, #B0B0B0);
+    color: #333;
+    text-align: center;
+}
+
+/* ==================== ENCABEZADO Y LOGO ==================== */
+header {
+    position: relative;
+}
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white; /* Fondo del recuadro del logo */
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.logo img {
+    height: 50px; /* Cambiar tamaño del logo */
+}
+
+/* ==================== IMAGEN PRINCIPAL (HERO) ==================== */
+.hero-img {
+    width: 100%;
+    max-height: 60vh; /* Altura máxima: 60% del alto de pantalla */
+    object-fit: cover; /* Ajusta y recorta sin deformar */
+    display: block;
+}
+}
+
+/* ==================== SECCIÓN DESCRIPCIÓN ==================== */
+.descripcion {
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+    font-size: 18px; /* Cambiar tamaño del texto */
+}
+.descripcion h1 {
+    font-size: 28px; /* Cambiar tamaño del título */
+}
+
+/* ==================== GALERÍA DE IMÁGENES ==================== */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajuste automático */
+    gap: 15px;
+    padding: 20px;
+}
+.galeria img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* ==================== BOTONES GENERALES ==================== */
+.btn {
+    background: #FFC107; /* Color del botón */
+    color: black;
+    padding: 12px 20px;
+    font-size: 18px; /* Tamaño del texto del botón */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px auto;
+    display: inline-block;
+    transition: background 0.3s;
+}
+.btn:hover {
+    background: #E0A800; /* Color al pasar el mouse */
+}
+
+/* ==================== MODAL DE CALCULADORA ==================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 90%;
+    text-align: left;
+}
+.close {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* ==================== MAPA ==================== */
+iframe {
+    border: none;
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .logo img {
+        height: 40px; /* Logo más pequeño en móviles */
+    }
+    .descripcion h1 {
+        font-size: 22px; /* Título más pequeño */
+    }
+    .btn {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== IMAGEN PRINCIPAL CON LOGO ==================== -->
+<header>
+    <img src="fondo.jpg" alt="Imagen principal" class="hero-img">
+    <div class="logo">
+        <img src="Logo.png" alt="Logo">
+    </div>
+</header>
+
+<!-- ==================== DESCRIPCIÓN ==================== -->
+<section class="descripcion">
+    <h1>Casas Prefabricadas de Calidad</h1>
+    <p>Construimos casas prefabricadas en Bloquelón o Plaqueta con materiales de alta resistencia, diseños modernos y entrega rápida. Garantizamos un excelente acabado y precios competitivos.</p>
+</section>
+
+<!-- ==================== GALERÍA DE CASAS ==================== -->
+<section class="galeria">
+    <img src="casa1.jpg" alt="Casa 1">
+    <img src="casa2.jpg" alt="Casa 2">
+    <img src="casa3.jpg" alt="Casa 3">
+</section>
+
+<!-- ==================== BOTÓN DE PRESUPUESTO ==================== -->
+<button class="btn" onclick="abrirModal()">Haz tu presupuesto</button>
+
+<!-- ==================== ACCIONES EXTRA ==================== -->
+<div>
+    <a href="https://wa.me/573012494093?text=Hola%20quiero%20comprar%20una%20casa%20prefabricada" target="_blank" class="btn">
+        Comprar
+    </a>
+    <a href="https://wa.me/573133403656?text=Hola%20quiero%20más%20información%20sobre%20las%20casas%20prefabricadas" target="_blank" class="btn">
+        Más información
+    </a>
+    <button class="btn" onclick="document.getElementById('mapa').scrollIntoView({behavior: 'smooth'})">Cómo llegar</button>
+</div>
+<!-- ==================== MODAL CALCULADORA ==================== -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <span class="close" onclick="cerrarModal()">&times;</span>
+        <h2>Cotiza tu Casa</h2>
+        <label>Metros cuadrados:</label>
+        <input type="number" id="metros" placeholder="Ej: 80" style="width: 100%; padding: 8px;">
+        <button onclick="calcular('bloquelon')" class="btn">Calcular en Bloquelón</button>
+        <button onclick="calcular('plaqueta')" class="btn">Calcular en Plaqueta</button>
+        <p id="resultado"></p>
+    </div>
+</div>
+
+<!-- ==================== GOOGLE MAPS ==================== -->
+<section id="mapa" style="padding: 20px;">
+    <h2>Visítanos</h2>
+    <iframe src="https://www.google.com/maps/dir//4.8743369,-74.143906/@4.8743369,-74.1464809,17z?hl=es&entry=ttu&g_ep=EgoyMDI1MDgxMi4wIKXMDSoASAFQAw%3D%3D" allowfullscreen></iframe>
+</section>
+
+<!-- ==================== JAVASCRIPT ==================== -->
+<script>
+/* Abrir modal */
+function abrirModal() {
+    document.getElementById('modal').style.display = 'flex';
+}
+
+/* Cerrar modal */
+function cerrarModal() {
+    document.getElementById('modal').style.display = 'none';
+}
+
+/* Calcular precio */
+function calcular(tipo) {
+    let metros = document.getElementById('metros').value;
+    if (!metros) {
+        document.getElementById('resultado').innerText = "Por favor ingrese los metros cuadrados.";
+        return;
+    }
+    let precio;
+    if (tipo === 'bloquelon') {
+        precio = metros * 500000; // Cambia el valor por m² en Bloquelón
+    } else {
+        precio = metros * 450000; // Cambia el valor por m² en Plaqueta
+    }
+    document.getElementById('resultado').innerText = "Precio estimado: $" + precio.toLocaleString();
+}
+</script>
+
+</body>
+</html>
