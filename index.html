@@ -12,28 +12,55 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            background: linear-gradient(to bottom, #ffcc00, #666666);
+            background: linear-gradient(to bottom, #ffcc00, #666666); /* Degradado amarillo Caterpillar a gris */
             font-family: Arial, sans-serif;
             color: white;
             text-align: center;
         }
 
+        img.logo {
+            max-width: 200px; /* Tamaño máximo del logo */
+            width: 80%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
         h1 {
-            font-size: 2.5rem;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            max-width: 400px;
         }
 
         #contador {
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-top: 20px;
             background: rgba(0,0,0,0.4);
             padding: 10px 20px;
             border-radius: 8px;
         }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.5rem; }
+            p { font-size: 1rem; }
+            #contador { font-size: 1.3rem; }
+        }
     </style>
 </head>
 <body>
+    <!-- Logo de la empresa -->
+    <img src="Logo.png" alt="Logo de la empresa" class="logo">
+
+    <!-- Título -->
     <h1>🚧 Página en construcción 🚧</h1>
+
+    <!-- Mensaje -->
     <p>Estamos trabajando para ofrecerte algo increíble. ¡Vuelve pronto!</p>
+
+    <!-- Contador -->
     <div id="contador"></div>
 
     <script>
