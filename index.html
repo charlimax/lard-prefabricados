@@ -1,4 +1,4 @@
-<!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -6,7 +6,7 @@
 
 <title>Lard Prefabricados | Casas Prefabricadas</title>
 <!-- Favicon -->
-<link rel="icon" type="image/png" href="Logo.png">
+<link rel="icon" type="image/png" href="logolardmodificado.png">
 
 <!-- 🔹 Meta descripción -->
 <meta name="description" content="Construimos casas prefabricadas en Bogotá, Boyacá, Villavicencio, Norte del Tolima y Sur de Santander. Diseños modernos, materiales de calidad, entrega rápida y precios competitivos.">
@@ -33,7 +33,7 @@
 <meta name="twitter:description" content="Construcción de casas modernas en Bogotá, Boyacá, Villavicencio, Tolima y Santander. Cotiza la tuya.">
 <meta name="twitter:image" content="https://lard-prefabricados.vercel.app/fondo.jpg">
 
-<!-- 🔹 Schema.org LocalBusiness con áreas de servicio -->
+<!-- 🔹 Schema.org LocalBusiness -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -76,27 +76,77 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #ef7e06, #B0B0B0);
+    background: linear-gradient(to bottom, #d9cbb3, #B0B0B0);
     color: #333;
     text-align: center;
 }
 
-/* ==================== ENCABEZADO Y LOGO ==================== */
+/* ==================== HEADER ==================== */
 header {
-    position: relative;
+  background: #d9cbb3;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
-.logo {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: transparent;
-    padding: 10px 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
+
 .logo img {
-    height: 150px;
+  height: 70px;  /* 👈 Ajusta el tamaño del logo */
+  width: auto;
+}
+
+/* Menú */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #ef7e06;
+}
+
+/* Hamburguesa (responsive) */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    width: 200px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
 }
 
 /* ==================== IMAGEN PRINCIPAL (HERO) ==================== */
@@ -133,7 +183,7 @@ header {
 
 /* ==================== BOTONES GENERALES ==================== */
 .btn {
-    background: #FFC107;
+    background: #d9cbb3;
     color: black;
     padding: 12px 20px;
     font-size: 18px;
@@ -173,6 +223,47 @@ header {
     font-size: 24px;
     cursor: pointer;
 }
+/* ==================== MODAL DE CALCULADORA ==================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 90%;
+    text-align: left;
+}
+.close {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* 🔹 Estilo elegante para el input de metros cuadrados */
+#metros {
+    width: 120px;        /* ancho reducido */
+    padding: 6px 10px;   /* espacio interno */
+    font-size: 16px;     /* texto legible */
+    border: 1px solid #ccc; 
+    border-radius: 6px;  /* bordes suaves */
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+#metros:focus {
+    border-color: #ef7e06;  /* mismo tono naranja de tu página */
+    box-shadow: 0 0 5px rgba(239, 126, 6, 0.5);
+}
+
 
 /* ==================== MAPA ==================== */
 iframe {
@@ -184,9 +275,6 @@ iframe {
 
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 768px) {
-    .logo img {
-        height: 40px;
-    }
     .descripcion h1 {
         font-size: 22px;
     }
@@ -199,22 +287,33 @@ iframe {
 </head>
 <body>
 
-<!-- ==================== IMAGEN PRINCIPAL CON LOGO ==================== -->
+<!-- ==================== HEADER ==================== -->
 <header>
-    <img src="fondo.jpg" alt="Imagen principal de casa prefabricada" class="hero-img">
-    <div class="logo">
-        <img src="logolardmodificado-removebg-preview.png" alt="Logo Casas Prefabricadas">
-    </div>
+  <div class="logo">
+    <img src="logolardmodificado.png" alt="Logo Casas Prefabricadas">
+  </div>
+  <nav>
+    <ul id="menu">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#mapa">Ubicación</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">☰</div>
+  </nav>
 </header>
 
+<!-- ==================== HERO ==================== -->
+<img src="fondo.jpg" alt="Imagen principal de casa prefabricada" class="hero-img">
+
 <!-- ==================== DESCRIPCIÓN ==================== -->
-<section class="descripcion">
+<section class="descripcion" id="inicio">
     <h1>Casas Prefabricadas de Calidad en Colombia</h1>
     <p>Construimos casas prefabricadas en Bloquelón o Plaqueta con materiales de alta resistencia, diseños modernos y entrega rápida. Atendemos en Bogotá, Boyacá, Villavicencio, Norte del Tolima y Sur de Santander.</p>
 </section>
 
 <!-- ==================== GALERÍA DE CASAS ==================== -->
-<section class="galeria">
+<section class="galeria" id="galeria">
     <img src="casa1.jpg" alt="Casa prefabricada modelo 1">
     <img src="casadesnivel.jpg" alt="Casa prefabricada en desnivel">
     <img src="casadospisos.jpg" alt="Casa prefabricada de dos pisos">
@@ -237,12 +336,22 @@ iframe {
 <div class="modal" id="modal">
     <div class="modal-content">
         <span class="close" onclick="cerrarModal()">&times;</span>
-        <h2>Cotiza tu Casa</h2>
+        <h2>🏠 Cotiza tu Casa</h2>
+        
         <label>Metros cuadrados:</label>
-        <input type="number" id="metros" placeholder="Ej: 80" style="width: 100%; padding: 8px;">
-        <button onclick="calcular('bloquelon')" class="btn">Calcular en Bloquelón</button>
-        <button onclick="calcular('plaqueta')" class="btn">Calcular en Plaqueta</button>
-        <p id="resultado"></p>
+	<input type="number" id="metros" placeholder="Ej: 80">
+
+
+        <label style="display:block; margin:10px 0;">
+            <input type="checkbox" id="cimentacion"> Incluir cimentación (+ $190.000/m²)
+        </label>
+
+        <div style="margin: 15px 0;">
+            <button onclick="calcular('bloquelon')" class="btn">Calcular en Bloquelón</button>
+            <button onclick="calcular('plaqueta')" class="btn">Calcular en Plaqueta</button>
+        </div>
+
+        <p id="resultado" style="font-weight:bold; color:#333;"></p>
     </div>
 </div>
 
@@ -263,18 +372,17 @@ iframe {
         Cómo llegar desde mi ubicación
     </a>
 </section>
+
 <!-- ==================== FOOTER ==================== -->
-<footer style="background:#333; color:#fff; padding:30px 20px; margin-top:40px; text-align:center;">
+<footer id="contacto" style="background:#333; color:#fff; padding:30px 20px; margin-top:40px; text-align:center;">
     <h3>Casas Prefabricadas de Calidad</h3>
-    <p><strong>Dirección:</strong> Carrera 1G # 6 - 19, Tenjo, Cundinamarca, Colombia<br>!Destras del ARA¡</p>
+    <p><strong>Dirección:</strong> Carrera 1G # 6 - 19, Tenjo, Cundinamarca, Colombia<br>¡Detrás del ARA!</p>
     <p><strong>Teléfonos:</strong> +57 30124940 | +57 3133403656</p>
-    <p><strong>WhatsApp:</strong> <a href="https://wa.me/573012494093?text=Hola%20quiero%20más%20información%20sobre%20las%20casas%20prefabricadas" target="_blank" style="color:#FFC107; text-decoration:none;">Contáctanos Por Whatsapp</a></p>
+    <p><strong>WhatsApp:</strong> <a href="https://wa.me/573012494093?text=Hola%20quiero%20más%20información%20sobre%20las%20casas%20prefabricadas" target="_blank" style="color:#FFC107; text-decoration:none;">Contáctanos por WhatsApp</a></p>
     <p><strong>Email:</strong> <a href="mailto:luisalfredoruizdiaz077@gmail.com" style="color:#FFC107; text-decoration:none;">luisalfredoruizdiaz077@gmail.com</a></p>
     <br>
     <p style="font-size:14px; color:#bbb;">© 2025 LARD PREFABRICADOS. Todos los derechos reservados.</p>
 </footer>
-
-
 
 <!-- ==================== JAVASCRIPT ==================== -->
 <script>
@@ -284,40 +392,40 @@ function abrirModal() {
 function cerrarModal() {
     document.getElementById('modal').style.display = 'none';
 }
+
 function calcular(tipo) {
-    let metros = document.getElementById('metros').value;
+    let metros = parseInt(document.getElementById('metros').value);
+    let cimentacion = document.getElementById('cimentacion') ? document.getElementById('cimentacion').checked : false;
+
     if (!metros) {
-        document.getElementById('resultado').innerText = "Por favor ingrese los metros cuadrados.";
+        document.getElementById('resultado').innerText = "⚠️ Por favor ingrese los metros cuadrados.";
         return;
     }
+
     let precio;
     if (tipo === 'bloquelon') {
-        precio = metros * 500000;
+        precio = metros * 380000;
     } else {
-        precio = metros * 450000;
+        precio = metros * 320000;
     }
-    document.getElementById('resultado').innerText = "Precio estimado: $" + precio.toLocaleString();
+
+    if (cimentacion) {
+        precio += metros * 190000;
+    }
+
+    document.getElementById('resultado').innerText = 
+        "💰 Precio estimado: $" + precio.toLocaleString();
+}
+
+// ==================== MENÚ HAMBURGUESA ====================
+const hamburger = document.getElementById('hamburger');
+const menu = document.getElementById('menu');
+
+if (hamburger && menu) {
+    hamburger.addEventListener('click', () => {
+        menu.classList.toggle('show');
+    });
 }
 </script>
-
 </body>
 </html>
-
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
