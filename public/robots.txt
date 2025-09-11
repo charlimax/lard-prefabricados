@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lard-prefabricados.vercel.app/sitemap.xml
